@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+// import { Home, Activities, My_Routines, Routines } from "./components";
 
 function App() {
   return (
