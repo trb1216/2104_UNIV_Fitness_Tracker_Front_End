@@ -1,81 +1,59 @@
-// eslint-disable-next-line no-unused-expressions
-// remember basic promises:
-// fetch('http://fitnesstrac-kr.herokuapp.com/api/some-endpoint')
-// .then(res => {
-// if (res.ok) {
-//     console.log('fetching')
-// } else {
-//     console.log('404')
-// }
-// })
-// .then(data => console.log(data))
-// .catch(error => console.log('..error'));
-// Ben: Window.localStorage.setItem("token", token) add to data. 
+const URL = "https://fitnesstrac-kr.herokuapp.com/api";
+const token = 'UzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mzk1L…3Nzl9.eqVqv_yJfEVZoUTUFTFjQvLAV9Tkv0mPjJfy2WMf2d4';
 
-const token =
-  "none of your business";
-fetch("http://fitnesstrac-kr.herokuapp.com/api/users/register", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    username: "username",
-    password: "password",
-  }),
-})
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => console.log(data))
-  .catch((error) => console.log("..error"));
 
-fetch("http://fitnesstrac-kr.herokuapp.com/api/users/login", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    username: "username",
-    password: "password",
-  }),
-})
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => console.log(data))
-  .catch((error) => console.log("..error"));
+ export const createUser = async (username, password) => {
 
-fetch("http://fitnesstrac-kr.herokuapp.com/api/users/me", {
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  },
-})
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => console.log(data))
-  .catch((error) => console.log("..error"));
+    const body = {
+          username,
+          password,
+      };
+      const fetchArgs = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      };
+const res = await fetch(URL + "users/register", fetchArgs);
+const json = await res.json();
+// set json.token to local Window.storage localStorage.setItem('token', json.token');
+console.log(json);
+return json;
+    };
 
-// const URL = "https://fitnesstrac-kr.herokuapp.com/api";
+export const userLogin = async (username, password) => {
 
-// export const register = async (username, password) => {
+  const body = {
+        username,
+        password,
+    };
+    const fetchArgs = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+const res = await fetch(URL + "users/login", fetchArgs);
+const json = await res.json();
+console.log(json);
+return json;
+  };
 
-//     const body = {
-//         user: {
-//           username,
-//           password,
-//         },
-//       };
-//       const fetchArgs = {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(body),
-//       };
-// const res = await fetch(URL + "users/register", fetchArgs);
-// const json = await res.json();
-// console.log(json);
-// return json ;
+
+export const userInfo = async (userToken) => {
+  const fetchArgsUser = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  await fetch(URL + "/users/me", fetchArgsUser)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      return result.data;
+    })
+    .catch(console.error);
+  };
