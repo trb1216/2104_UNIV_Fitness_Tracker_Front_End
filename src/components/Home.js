@@ -1,8 +1,17 @@
-// import React, {useEffect, useState } from "react";
+import React from "react";
 
-// Use a Navbar?
+const Home = () => {
+  console.log("home")
+    return (
+      <div>
+          <h1>You are Home</h1>
+      </div>
+  );
+};
 
-    // import React from "react";
-    // import { Link } from "react-router-dom";
+export default Home;
 
-    // export default Navbar;
+// import React from "react";
+// import { Link } from "react-router-dom";
+
+// export default Navbar;

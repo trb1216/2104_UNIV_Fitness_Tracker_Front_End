@@ -1,13 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Navbar, Home, Register, Login } from "./components";
 
 function App() {
   return (
+    <header>
     <div className="App">
       <Navbar />
+      
       <Switch>
+      <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
@@ -16,6 +20,7 @@ function App() {
         </Route>
       </Switch>
     </div>
+    </header>
   );
 }
 
