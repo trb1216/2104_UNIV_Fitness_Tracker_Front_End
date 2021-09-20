@@ -27,12 +27,16 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="/activities">
+            <Activities />
+          </Route>
         </Switch>
+        <Route path="/routines">
+            <Routines />
+          </Route>
         </Grid>
       </div>
     </header><main>
-< Activities />
-< Routines />
       </main></>
   );
 }

@@ -9,10 +9,10 @@ const Routines = () => {
     let res = await publicRoutines();
     let routinePosts = res;
     setroutines(routinePosts);
-    console.log("Routines", routines, setListroutines);
+    console.log("Routines", routines);
   }, []);
   return (
-    <Grid container direction="row" justifyContent="right" alignItems="center">
+    <Grid container direction="row" justifyContent="center" alignItems="center">
       <h1>Public Routines</h1>
       {listRoutines.length ? (listRoutines.map() ) : (<></>)}
     </Grid>

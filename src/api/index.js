@@ -72,7 +72,7 @@ export const newActivity = async (name, description) => {
     },
     body: JSON.stringify(body),
   };
-  const res = await fetch(`${URL}activities`, fetchArgs,)
+  const res = await fetch(`${URL}activities`, fetchArgs);
   const json = await res.json();
   return json;
 };
@@ -88,10 +88,13 @@ export const updateActivity = async (name, description, activityId) => {
   };
 
   try {
-  const res = await fetch(`${URL}activities/${activityId}`, fetchArgs,)
-  const json = await res.json();
-  return json;
-} catch (error) {throw error}; };
+    const res = await fetch(`${URL}activities/${activityId}`, fetchArgs);
+    const json = await res.json();
+    return json;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const publicRoutinesWithActivity = async (activityId) => {
   const fetchArgs = {
@@ -121,7 +124,7 @@ export const newRoutine = async (name, goal, isPublic) => {
     method: "POST",
     body: JSON.stringify(body),
   };
-  const res = await fetch(`${URL}routines`, fetchArgs,)
+  const res = await fetch(`${URL}routines`, fetchArgs);
   const json = await res.json();
   return json;
 };
@@ -133,11 +136,14 @@ export const myRoutines = async (username) => {
     },
   };
   try {
-  const res = await fetch(`${URL}users/${username}/routines`, fetchArgs);
-  const json = await res.json();
+    const res = await fetch(`${URL}users/${username}/routines`, fetchArgs);
+    const json = await res.json();
 
-  return json;
-} catch (error) {throw error}; };
+    return json;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const updateRoutine = async (name, goal, routineId) => {
   const body = { name, goal };
@@ -147,7 +153,10 @@ export const updateRoutine = async (name, goal, routineId) => {
   };
 
   try {
-  const res = await fetch(`${URL}routines/${routineId}`, fetchArgs,)
-  const json = await res.json();
-  return json;
-} catch (error) {throw error}; };
+    const res = await fetch(`${URL}routines/${routineId}`, fetchArgs);
+    const json = await res.json();
+    return json;
+  } catch (error) {
+    throw error;
+  }
+};

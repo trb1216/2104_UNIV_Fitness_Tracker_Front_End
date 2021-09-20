@@ -8,18 +8,22 @@ import { publicActivities, updateActivity } from "../api/index.js";
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   const [listActivities, setListActivities] = useState([]);
+  const [name, setName] = useState([]);
+  const [description, setDescription] = useState([]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
+
     let res = await publicActivities();
     let activityPosts = res;
     setActivities(activityPosts);
-    console.log("Activities", activities, setListActivities, updateActivity);
+    console.log("Activities", activities, updateActivity);
+    console.log({name, description});
   }, []);
   return (
-    <Grid container direction="row" justifyContent="left" alignItems="center">
+    <Grid container direction="row" justifyContent="center" alignItems="center">
       <h1>Public Activities</h1>
       <Grid>
-        {listActivities.length ? (listActivities.map() ) : (<>{/* Console */}</>)}
+        {listActivities.length ? listActivities.map() : null }
       </Grid>
     </Grid>
   );
