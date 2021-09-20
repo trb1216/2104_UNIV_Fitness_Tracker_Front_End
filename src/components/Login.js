@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import React, { useState, useEffect } from "react";
 import { userLogin } from "../api/index";
 
@@ -16,7 +17,12 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      >
       <h1>Login</h1>
       <form onSubmit={submitForm}>
         <input
@@ -31,7 +37,7 @@ const Login = () => {
         />
         <button type="submit">Submit</button>
       </form>
-    </div>
+    </Grid>
   );
 };
 
