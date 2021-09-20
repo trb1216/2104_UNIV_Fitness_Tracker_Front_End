@@ -1,3 +1,7 @@
+// reference:
+// https://mui.com/api/grid/
+// https://mui.com/components/grid/
+// npm install @mui/material @emotion/react @emotion/styled
 import { Route, Switch } from "react-router-dom";
 import { Navbar, Home, Register, Login, Activities } from "./components";
 
