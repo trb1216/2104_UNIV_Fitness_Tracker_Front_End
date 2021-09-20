@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-// import React, {useEffect, useState } from "react";
-
-// Use a Navbar?
-=======
 import React from "react";
 import { My_Routines } from ".";
 
@@ -15,9 +10,5 @@ const Home = () => {
       </div>
   );
 };
->>>>>>> Stashed changes
 
-    // import React from "react";
-    // import { Link } from "react-router-dom";
-
-    // export default Navbar;
+export default Home;
